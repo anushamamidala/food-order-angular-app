@@ -8,10 +8,18 @@ import { Feed } from '../Model/feed';
 })
 export class CartComponent implements OnInit {
   cartItems: Feed[] = [];
+  totalPrice:any;
   constructor() { }
 
   ngOnInit(): void {
     this.cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    this.totalPrice = 0;
+    if(this.cartItems.length > 0){
+      for(let i = 0; i< this.cartItems.length;i++){
+        this.totalPrice += this.cartItems[i].price.price;
+      }
+    }
+    
   }
 
 }

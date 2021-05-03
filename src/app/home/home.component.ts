@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
       console.log(data)
       this.feedItems = data;
       this.selectedItems = this.feedItems;
-
     });
   }
 
