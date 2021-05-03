@@ -1,1 +1,11 @@
-<p>home works!</p>
+
+<div class="form-group row justify-content-center mb-5">
+    <div class="col-sm-8">
+      <input type="text" placeholder="Search Food Items" (input)="onSearchInputChange($event)" class="form-control" id="search">
+    </div>
+  </div>
+  <div class="d-flex flex-row ml-5">
+    <div class="d-flex flex-row mr-2 mb-3" *ngFor="let item of selectedItems">
+        <app-item-card  [feed]="item"></app-item-card>
+    </div>
+  </div>

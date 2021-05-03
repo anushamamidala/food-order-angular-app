@@ -5,6 +5,11 @@
                 Register
             </div>
             <div class="card-body">
+                <div *ngIf="error" class="mt-3 alert alert-danger">
+                    <div *ngIf="error">
+                        {{error}}
+                    </div>
+                </div>
                 <form [formGroup]="registrationForm" novalidate (ngSubmit)="onSubmit()">
                     <div class="form-group row">
                         <div class="col-xs-4 col-sm-4 col-md-4 text-right">
@@ -58,6 +63,11 @@
                                 <div *ngIf="registrationForm.controls['confirmPassword'].invalid && (registrationForm.controls['confirmPassword'].dirty || registrationForm.controls['confirmPassword'].touched)" class="mt-3 alert alert-danger">
                                     <div *ngIf="registrationForm.controls['confirmPassword'].errors.required">
                                         Confirm Password is required.
+                                    </div>
+                                </div>
+                                <div *ngIf="notSamePassword" class="mt-3 alert alert-danger">
+                                    <div *ngIf="notSamePassword">
+                                        Confirm Password and password should be same.
                                     </div>
                                 </div>
                         </div>

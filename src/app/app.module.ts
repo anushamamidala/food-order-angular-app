@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +16,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { AddressComponent } from './address/address.component';
 import { CartComponent } from './cart/cart.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FeedService } from './Services/feed.service';
+import { UserService } from './Services/user.service';
+import { AuthGuardService } from './Services/auth-guard.service';
+import { AuthService } from './Services/auth.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -35,9 +41,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    FeedService,
+    UserService,
+    AuthGuardService,
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

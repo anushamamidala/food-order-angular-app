@@ -5,7 +5,7 @@
                 Login
             </div>
             <div class="card-body">
-                <form>
+                <form [formGroup]="loginForm">
                     <div class="form-group row">
                         <div class="col-xs-4 col-sm-4 col-md-4 text-right">
                             <label for="email" class="col-form-label">E-Mail Address</label>
@@ -34,8 +34,8 @@
                     </div>
                     <div class="form-check">
                         <div class="col-md-11">
-                            <input type="checkbox" class="form-check-input" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe" formControlName="rememberMe">Remember me</label>
+                            <input type="checkbox" class="form-check-input" id="rememberMe" formControlName="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
                         </div>
                     </div>
                     <div class="offset-md-1">

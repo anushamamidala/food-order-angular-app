@@ -1,9 +1,33 @@
 <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
+    <img [src]="feed.images[0]" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Add to Cart</a>
+      <h5 class="card-title">{{feed.storeName}}</h5>
+      <p class="card-text">{{feed.description}}</p>
+      <h6 class="card-text">{{feed.name}}</h6>
+      <a href="#" class="btn btn-primary mr-3"  data-toggle="modal" data-target="#addToCardModal" (click)="addToCartItem()">Add to Cart</a>
       <a href="#" class="btn btn-primary">Buy / Order</a>
+    </div>
+  </div>
+
+  <div #modal *ngIf="selectedItem" class="modal fade" id="addToCardModal" tabindex="-1" role="dialog" aria-labelledby="addToCardModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addToCardModalLabel">Are you sure you want to add this item to cart?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Add order to cart?</p>
+          <p>Order Id:</p>
+          <p>{{selectedItem?.name}} | {{selectedItem?.price?.price | currency:'INR'}} </p>
+          <p>Click on Add to Cart to proceed further</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" #closebutton class="btn btn-secondary" data-dismiss="modal" (click)="onCloseClick()">Close</button>
+          <button type="button" class="btn btn-success" (click)="addToCart()">Add to Cart</button>
+        </div>
+      </div>
     </div>
   </div>
