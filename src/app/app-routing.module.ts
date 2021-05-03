@@ -9,26 +9,26 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
-import { 
-  AuthGuardService as AuthGuard 
+import {
+  AuthGuardService as AuthGuard
 } from '../app/Services/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent,canActivate: [AuthGuard]  },
-  {path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   {
     path: 'settings', component: SettingsComponent,
-    canActivate: [AuthGuard],
-    children: [{
-      path: 'address', component: AddressComponent, canActivate: [AuthGuard] 
-    }]
+    canActivate: [AuthGuard]
   },
-  { path: 'cart', component: CartComponent, canActivate: [AuthGuard]  },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
-  { path: 'track-order', component: TrackOrderComponent ,canActivate: [AuthGuard] }
+  {
+    path: 'settings/address', component: AddressComponent, canActivate: [AuthGuard]
+  },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'track-order', component: TrackOrderComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
